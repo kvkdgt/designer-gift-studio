@@ -1,0 +1,144 @@
+.headings {
+    padding: 30px;
+    padding-top: 50px;
+    text-align: center;
+}
+.title {
+    color: #fd4a36;
+    font-family: Poppins;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.sub-title{
+    color: #0c2957;
+    font-family: Poppins;
+    font-size: 50px;
+    font-weight: 600;
+}
+.sub-title-2{
+    color: #fff;
+    font-family: Poppins;
+    font-size: 50px;
+    font-weight: 600;
+}
+.service-cards{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    padding-top: 5px;
+}
+.services-cards-2{
+    background-color: #0c2957;
+    margin-bottom: 20px;
+}
+.light-version{
+    background-color: #fff !important;
+    height: 250px !important;
+    border-radius: 15px;
+}
+.service-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.light-version h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.blue-color svg {
+    background-color: blue !important;
+}
+.green-color svg {
+    background-color: rgb(77 175 66) !important;
+}
+.flow-of-work {
+    background-color: #fff;
+}
+
+.yellow-color svg {
+    background-color: rgb(255, 208, 0) !important;
+}
+
+.service-svg svg {
+    height: 30px;
+    width: 30px;
+    padding: 20px;
+    background-color: #fd4a36;
+    border-radius: 15px;
+    color: #fff;
+}
+.service-cards-2-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    padding-top: 5px;
+
+}
+.service-card-single {
+    width: 20%;
+    height: 200px;
+    background-color: #f1f6ff;
+    padding: 20px;
+}
+
+.service-card-single h3{
+    color: #0c2957;
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+.service-card-single p{
+    color: #434343;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.service-card-single-alternate {
+    width: 20%;
+    height: 200px;
+    background-color: #fcefee;
+    padding: 20px;
+}
+
+.service-card-single-alternate h3{
+    color: #fd4a36;
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+.service-card-single-alternate p{
+    color: #434343;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 18px;
+    }
+    .sub-title{
+        font-size: 30px;
+    }
+    .sub-title-2{
+        font-size: 30px;
+    }
+    .service-cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+    .service-cards-2-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .service-card-single, .service-card-single-alternate {
+        width: 80%;
+    }
+}

@@ -1,0 +1,135 @@
+.professional-graphics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.professional-vector{
+    width: 50%;
+}
+.professional-text{
+    width: 50%;
+    margin-left: 25px;
+}
+.main-text{
+    font-family: Poppins;
+    font-size: 52px;
+    font-weight: 700;
+    color: #0c2957;
+}
+.svg-header {
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 500;
+    color: #0c2957;
+}
+.secondary-text{
+    margin-top: 10px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    color: #505661;
+}
+.quality-service{
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+
+}
+.quality {
+    width: 50%;
+}
+.svg-icon svg {
+    fill: #fff;
+    width: 30px;
+    margin: 15px;
+}
+.svg-icon {
+    margin-top: 10px;
+    background-color: yellow;
+}
+.quality-inside {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.main-text-story{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.story {
+    background-color: #0c2957;
+    padding: 50px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.story-content {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    color: #d4dbe7;
+    margin-top: 15px;
+}
+.quality-graphics{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    justify-content:space-around;
+}
+.quality-graphics-1 {
+    width: 50%;
+}
+.quality-graphics-2 {
+    width: 50%;
+    padding: 20px;
+}
+@media only screen and (max-width: 768px) {
+    .quality-graphics{
+       flex-direction: column;
+    }
+    .quality-graphics-1 {
+        width: 100%;
+    }
+    .quality-graphics-1 img {
+        width: 100%;
+    }
+    .quality-graphics-2 {
+        width: 100%;
+    }
+    .professional-graphics {
+       flex-direction: column-reverse;
+    }
+    .professional-vector{
+        width: 100%;
+    }
+    .professional-vector img {
+        width: 100%;
+    }
+    .professional-text{
+        width: 100%;
+        margin-left: 25px;
+    }
+    .main-text{
+        font-family: Poppins;
+        font-size: 40px;
+        font-weight: 700;
+        color: #0c2957;
+    }
+   
+    .secondary-text{
+        margin-top: 10px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        color: #505661;
+        margin-right: 25px;
+
+    }
+    .quality {
+        width: 100%;
+    }
+    .quality-service {
+        flex-direction: column;
+    }
+}
