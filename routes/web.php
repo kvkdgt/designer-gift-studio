@@ -24,11 +24,19 @@ Route::get('/admin/login',[App\Http\Controllers\AdminController::class, 'index']
 Route::post('/admin/loginCheck',[App\Http\Controllers\AdminController::class, 'login'])->name('loginCheck');
 Route::middleware('auth:sanctum')->get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin/dashboard');
 Route::middleware('auth:sanctum')->get('/admin/enquiries',[App\Http\Controllers\AdminController::class, 'enquiries'])->name('admin/enquiries');
+Route::middleware('auth:sanctum')->get('/admin/blogs',[App\Http\Controllers\AdminController::class, 'blogs'])->name('admin/blogs');
+Route::middleware('auth:sanctum')->get('/admin/blogs/add',[App\Http\Controllers\AdminController::class, 'addNewBlog'])->name('admin/addNewBlog');
+Route::middleware('auth:sanctum')->post('/admin/blogs/add',[App\Http\Controllers\AdminController::class, 'saveblog'])->name('saveblog');
+Route::middleware('auth:sanctum')->delete('/admin/blogs/delete/{id}',[App\Http\Controllers\AdminController::class, 'destroy'])->name('blogs.destroy');
+
+
 Route::middleware('auth:sanctum')->get('/admin/enquiries/delete/{id}',[App\Http\Controllers\AdminController::class, 'deleteEnquiry'])->name('admin/enquiries/delete');
 Route::middleware('auth:sanctum')->get('/admin/enquiries/view/{id}',[App\Http\Controllers\AdminController::class, 'viewEnquiry'])->name('admin/enquiries/view');
 Route::middleware('auth:sanctum')->get('/admin/logout',[App\Http\Controllers\AdminController::class, 'logout'])->name('admin/logout');
 
 Route::POST('/enquiry/add',[App\Http\Controllers\AdminController::class, 'addEnquiry'])->name('enquiry/add');
+Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{id}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show');
 
 
 

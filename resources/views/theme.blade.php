@@ -32,6 +32,8 @@
         <a href="{{route('about')}}"><div class="menu-item">About</div></a>
         <a href="{{route('services')}}"><div class="menu-item">Services</div></a>
         <a href="{{route('gallery')}}"><div class="menu-item">Gallery</div></a>
+        <a href="{{route('blogs.index')}}"><div class="menu-item">Blog</div></a>
+
     </div>
     <a href="{{env('APP_URL')}}/#contact-us">
     <div class="contact-us-btn">
@@ -57,6 +59,8 @@
     <a href="{{route('about')}}"><div class="menu-name-sidebar">ABOUT</div></a>
     <a href="{{route('services')}}"><div class="menu-name-sidebar">SERVICES</div></a>
     <a href="{{route('gallery')}}"><div class="menu-name-sidebar">Gallery</div></a>
+    <a href="{{route('blogs.index')}}"><div class="menu-name-sidebar">Blog</div></a>
+
     <a href="#"><div class="menu-name-sidebar">CONTACT US</div></a>
 
 

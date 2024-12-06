@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Enquiries;
 
@@ -17,8 +18,6 @@ class AdminController extends Controller
 
     public function signup(Request $request)
     {
-
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -82,6 +81,68 @@ class AdminController extends Controller
     public function logout()
     {
         return to_route('login');
+    }
 
+    public function blogs()
+    {
+        $blogs = Blog::all();
+        return view('admin/blogs', compact('blogs'));
+    }
+    public function addNewBlog()
+    {
+        return view('admin/addNewBlog');
+    }
+    public function saveBlog(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'seo_tags' => 'nullable|string',
+        ]);
+
+        // Generate slug from the title
+        $slug = strtolower(str_replace(' ', '-', $validated['title']));
+
+        // Store the thumbnail image
+        $thumbnail = $request->file('thumbnail');
+        $thumbnailName = time() . '_' . $thumbnail->getClientOriginalName();
+        $thumbnailPath = $thumbnail->storeAs('public/thumbnails', $thumbnailName);
+
+        // Create the blog record
+        Blog::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'thumbnail' => $thumbnailName,
+            'seo_tags' => $validated['seo_tags'],
+            'blog_slug' => $slug, // Add slug to the database
+        ]);
+
+        return redirect('admin/blogs')->with('success', 'Blog added successfully!');
+    }
+
+    public function destroy($id)
+    {
+        try {
+            // Find the blog by ID
+            $blog = Blog::findOrFail($id);
+
+            // Delete the associated thumbnail file (optional)
+            if ($blog->thumbnail) {
+                $thumbnailPath = public_path('storage/' . str_replace('public/', '', $blog->thumbnail));
+                if (file_exists($thumbnailPath)) {
+                    unlink($thumbnailPath);
+                }
+            }
+
+            // Delete the blog record
+            $blog->delete();
+
+            // Redirect back with success message
+            return redirect()->route('blogs')->with('success', 'Blog deleted successfully.');
+        } catch (\Exception $e) {
+            // Handle errors
+            return redirect()->route('admin/blogs')->with('error', 'Failed to delete the blog. Try again.');
+        }
     }
 }
